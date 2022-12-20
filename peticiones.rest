@@ -1,8 +1,21 @@
 /// RECUPERA TODOS LOS PRODUCTOS
 ### 
 GET http://localhost:3000/api/products
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
 
 
 /// RECUPERA TODOS LAS CATEGORIAS
 ### 
 GET http://localhost:3000/api/categories
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+
+
+///EDITA UN PASSWORD
+###
+PUT http://localhost:3000/api/users/new-password/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+
+{
+    "password_user": "Admin123"
+}
