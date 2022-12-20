@@ -1,0 +1,8 @@
+/// RECUPERA TODOS LOS PRODUCTOS
+### 
+GET http://localhost:3000/api/products
+
+
+/// RECUPERA TODOS LAS CATEGORIAS
+### 
+GET http://localhost:3000/api/categories
