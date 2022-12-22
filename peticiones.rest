@@ -1,15 +1,18 @@
-/// RECUPERA TODOS LOS PRODUCTOS
-### 
-GET http://localhost:3000/api/products
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
-
-
+//// CATEGORIAS /////////////////////////////////////////
 /// RECUPERA TODOS LAS CATEGORIAS
 ### 
 GET http://localhost:3000/api/categories
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
 
 
+//// PRODUCTOS //////////////////////////////////////////
+/// RECUPERA TODOS LOS PRODUCTOS
+### 
+GET http://localhost:3000/api/products
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+
+
+//// USUARIOS ///////////////////////////////////////////
 ///EDITA UN PASSWORD
 ###
 PUT http://localhost:3000/api/users/new-password/1
@@ -20,12 +23,31 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNB
     "password_user": "Admin123"
 }
 
+
+//// MESAS //////////////////////////////////////////////
 /// PETICION QR
 ###
 GET http://localhost:3000/api/tables/newqr/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
 
-/// AÑADIR CLIENTE A MESA
+/// AÑADIR MESA
+###
+POST http://localhost:3000/api/tables/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+Content-Type: application/json
+
+{
+"id_table": 1,
+"comment": "mesa 10 pex"
+}
+
+/// ELIMINAR MESA
+###
+DELETE http://localhost:3000/api/tables/delete/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+
+//// CLIENTES ///////////////////////////////////////////
+/// AÑADIR CLIENTE
 ###
 POST http://localhost:3000/api/clients/register
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
@@ -36,7 +58,14 @@ Content-Type: application/json
 "id_table": 1
 }
 
-/// AÑADIR NUMERO DE PEDIDO A CLIENTE
+/// ELIMINAR UN CLIENTE 
+###
+DELETE http://localhost:3000/api/clients/delete/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+
+
+//// PEDIDOS ////////////////////////////////////////////
+/// AÑADIR PEDIDO 
 ###
 POST http://localhost:3000/api/orders/neworder
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM

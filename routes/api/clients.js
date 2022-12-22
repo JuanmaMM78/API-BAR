@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { checkError } = require('../../helpers/validator');
 const { body} = require('express-validator');
-const {create} = require('../../models/client.model');
+const {create, deleteClientById} = require('../../models/client.model');
 
 router.post('/register', 
     body('name_client')
@@ -24,11 +24,12 @@ router.post('/register',
         }
 })
 
-
-router.delete('/delete/:tableId/:clientId',
+router.delete('/delete/:clientId',
     async(req, res) => {
-        const {tableId} = req.params;
         const {clientId} = req.params;
-        const clientDel = deleteClient(tableId,clientId)
-    })
+        const result = await deleteClientById(clientId);
+        res.json(result)
+})
+
+
 module .exports = router;  

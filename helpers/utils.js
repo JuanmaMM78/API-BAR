@@ -2,7 +2,6 @@ const dayjs = require('dayjs');
 const jwt = require('jsonwebtoken');
 const {toString} = require('qrcode');
 const {readFileSync, writeFileSync} = require('fs');
-const { table } = require('console');
 
 const executeQuery = (query, params = []) => {
     return new Promise((resolve, reject) => {
