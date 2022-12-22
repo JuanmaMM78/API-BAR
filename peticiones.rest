@@ -19,3 +19,44 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNB
 {
     "password_user": "Admin123"
 }
+
+/// PETICION QR
+###
+GET http://localhost:3000/api/tables/newqr/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+
+/// AÑADIR CLIENTE A MESA
+###
+POST http://localhost:3000/api/clients/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+Content-Type: application/json
+
+{
+"name_client":"Paco",
+"id_table": 1
+}
+
+/// AÑADIR NUMERO DE PEDIDO A CLIENTE
+###
+POST http://localhost:3000/api/orders/neworder
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImV4cGlyZXNBdCI6MTY3NTE1NDUzMSwiaWF0IjoxNjcxNTU0NTMxfQ.wOG50YjIPfWQwzCIweqDPRYDHhkZsrTKnZIDFJcaNzM
+Content-Type: application/json
+
+[
+{
+"id_client": 1,
+"id_product": 1,
+"lot": 1,
+"id_table": 1,
+"num_tiket": 2
+},
+{
+"id_client": 1,
+"id_product": 3,
+"lot": 2,
+"id_table": 1,
+"num_tiket": 2
+}
+]
+
+

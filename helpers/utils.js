@@ -1,5 +1,8 @@
 const dayjs = require('dayjs');
 const jwt = require('jsonwebtoken');
+const {toString} = require('qrcode');
+const {readFileSync, writeFileSync} = require('fs');
+const { table } = require('console');
 
 const executeQuery = (query, params = []) => {
     return new Promise((resolve, reject) => {
@@ -22,14 +25,54 @@ const executeQueryOne = (query, params = []) => {
 
 const createToken = (user) => {
     const obj = {
-        userId: user.id_user,
+        Id: user.id_user,
         userRole: user.role,
         expiresAt: dayjs().add(1000, 'hours').unix()
     }
     return jwt.sign(obj, process.env.JWT_TOKEN);
 }
 
+const createTokenTable = (tableId) => {
+    const obj = {
+        Id: tableId.id_table,
+        expiresAt: dayjs().add(1000, 'hours').unix()
+    }
+    return jwt.sign(obj, process.env.JWT_TOKEN);
+}
+
+/// creamos QR 
+const newQR = (tableId) => {
+    const Print=msg=>console.log(msg);
+
+    const token = createTokenTable(tableId);
+
+    const url = `http://APP-BAR/${token}`
+
+    const QR = toString(
+        url,
+        {
+            type: 'svg' /// cambiar a 'svg'
+        },
+        (err, data)=> {
+            if(err) return Print(`Ocurrio un error: ${err}`)
+            let web = readFileSync ('./template.html', {encoding: 'utf-8'}).replace('[QR CODE]', data)
+            let position = web.indexOf('<svg')+5
+
+            let positionData = data.indexOf('<svg>')+5
+        
+            web = `${web.substring(0,position)} width="300" height="300" ${web.substring(position, web.length)}`
+
+            const dataSice = `${data.substring(0,positionData)}  ${data.substring(positionData, data.length)}`
+
+            writeFileSync('./index.html', web, {encoding: 'utf-8'})
+            require('child_process').exec('start chrome  C:/Users/Juanma/Desktop/proyectos/APP_BAR/API-BAR/index.html')
+
+            return dataSice        
+        }    
+    )
+    return QR   
+}
 
 module.exports = {
-    executeQuery, executeQueryOne, createToken
+    executeQuery, executeQueryOne, createToken, newQR
 }
