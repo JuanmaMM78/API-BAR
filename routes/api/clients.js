@@ -24,4 +24,11 @@ router.post('/register',
         }
 })
 
+
+router.delete('/delete/:tableId/:clientId',
+    async(req, res) => {
+        const {tableId} = req.params;
+        const {clientId} = req.params;
+        const clientDel = deleteClient(tableId,clientId)
+    })
 module .exports = router;  

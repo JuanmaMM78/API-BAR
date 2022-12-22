@@ -65,7 +65,7 @@ const newQR = (tableId) => {
             const dataSice = `${data.substring(0,positionData)}  ${data.substring(positionData, data.length)}`
 
             writeFileSync('./index.html', web, {encoding: 'utf-8'})
-            require('child_process').exec('start chrome  C:/Users/Juanma/Desktop/proyectos/APP_BAR/API-BAR/index.html')
+            require('child_process').exec(`start chrome  ${process.env.URL_QR}`)
 
             return dataSice        
         }    
